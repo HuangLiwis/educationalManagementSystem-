@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="customer" />
+        <module name="provider" />
+        <module name="systemApi" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="customer" target="1.5" />
+      <module name="managementSystem" target="1.5" />
+      <module name="provider" target="1.5" />
+      <module name="systemApi" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
