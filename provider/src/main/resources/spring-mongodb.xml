@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.xiaozhi.dao.mongo"/>
+    <context:property-placeholder location="classpath:application.properties" />
+
+    <!--mongodb数据库信息-->
+    <bean id="mongoClient" class="com.mongodb.MongoClient" >
+        <constructor-arg name="host" value="${mongo.host}"/>
+        <constructor-arg name="port" value="${mongo.port}"/>
+    </bean>
+
+    <!--new一个morphia对象-->
+    <bean id="morphia" class="org.mongodb.morphia.Morphia"/>
+
+    <!--本应由morphia.createDatastore创建datastore，以下为方便配置-->
+    <!--DatastoreImpl为内部使用类，所以不推荐使用-->
+    <bean id="datastore" class="org.mongodb.morphia.DatastoreImpl">
+        <constructor-arg name="morphia" ref="morphia" />
+        <constructor-arg name="mongoClient" ref="mongoClient" />
+        <constructor-arg name="dbName" value="${mongo.dbName}" />
+    </bean>
+
+
+</beans>

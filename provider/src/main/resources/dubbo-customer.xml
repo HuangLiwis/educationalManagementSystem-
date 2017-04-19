@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!-- 提供方应用名称信息，这个相当于起一个名字，我们dubbo管理页面比较清晰是哪个应用暴露出来的 -->
+    <dubbo:application name="dubbo-provider"/>
+    <dubbo:protocol id="dubbo" name="dubbo" port="21521" threads="300"/>
+
+    <dubbo:provider protocol="dubbo" />
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" check="false" />
+    <!-- 要暴露的服务接口 -->
+    <dubbo:service version="1.0" interface="com.xiaozhi.service.TestService" ref="testServiceImpl" />
+    <dubbo:service version="1.0" interface="com.xiaozhi.service.LoginService" ref="loginServiceImpl" />
+</beans>

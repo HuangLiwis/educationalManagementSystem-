@@ -1,0 +1,105 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: 小智
+  Date: 2017/4/19 0019
+  Time: 15:02
+  To change this template use File | Settings | File Templates.
+-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            color: #555555;
+            font-size: 14px;
+            font-family: "microsoft yahei";
+
+        }
+
+        #main {
+            width: 1002px;
+            margin: 0 auto;
+            padding-top: 150px;
+            height: 646px;
+            background: url(../img/bg_01.jpg) no-repeat;
+        }
+
+        .formData {
+            margin: 0px 0px 0px 600px;
+            width: 345px;
+            height: 391px;
+            background: url("../img/formbg.png") no-repeat;
+            position: relative;
+        }
+
+        .footData {
+            text-align: center;
+            margin: 50px 0px 0px 0px;
+            height: auto;
+            width: auto;
+        }
+
+        #studentId {
+            position: absolute;
+            top: 136px;
+            left: 165px;
+            width: 130px;
+            height: 24px;
+        }
+
+        #password {
+            position: absolute;
+            top: 185px;
+            left: 165px;
+            width: 130px;
+            height: 24px;
+        }
+
+        .btn {
+            width: 100px;
+        }
+
+        #myReset {
+            position: absolute;
+            top: 238px;
+            left: 50px;
+        }
+
+        #mySubmit {
+            position: absolute;
+            top: 238px;
+            left: 180px;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="formData">
+        <form action="/login/studentLogin" method="get">
+            <input type="text" id="studentId" name="studentId" placeholder="请输入学号">
+            <input type="password" id="password" name="password" placeholder="请输入密码">
+            <input type="reset" class="btn btn-info" id="myReset" value="重 置">
+            <input type="submit" class="btn btn-info" id="mySubmit" value="登  录">
+        </form>
+    </div>
+    <div class="footData">小智的网站</div>
+</div>
+
+<script>
+    new Vue({
+        el: '#main',
+        data: {
+            message: '<h1></h1>'
+        }
+    })
+</script>
+</body>
+</html>

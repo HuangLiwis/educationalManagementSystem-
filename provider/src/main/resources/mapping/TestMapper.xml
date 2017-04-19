@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiaozhi.dao.mysql.TestDao">
+    <resultMap id="testMap" type="com.xiaozhi.model.mysql.TestDo">
+        <result column="name" property="name"/>
+        <result column="password" property="password"/>
+    </resultMap>
+
+    <sql id="saveAllColumn">
+        (uname,upassword)
+    </sql>
+    <sql id="getAllColumn">
+        uid,uname,upassword
+    </sql>
+
+    <insert id="addUser">
+        INSERT INTO mytest
+        <include refid="saveAllColumn"/>
+        VALUES (#{uname},#{upassword})
+    </insert>
+
+
+    <select id="findUser" resultMap="testMap">
+        SELECT
+         *
+        FROM mytest
+        WHERE 1=1
+        <if test="name!=null">
+            AND uname=#{name}
+        </if>
+        <if test="password !=null">
+            AND password=#{password}
+        </if>
+    </select>
+
+
+    <!--<delete id="deleteUser">-->
+        <!--DELETE FROM user-->
+        <!--WHERE uid=#{uid}-->
+        <!--<if test="uname !=null">-->
+            <!--AND uname=#{uname}-->
+        <!--</if>-->
+    <!--</delete>-->
+
+
+    <!--<update id="updateUser">-->
+        <!--UPDATE user SET-->
+        <!--uname=#{uname},-->
+        <!--upassword=#{upassword}-->
+        <!--modifyTime=#{modifyTime}-->
+        <!--<where>-->
+            <!--uid=#{uid}-->
+        <!--</where>-->
+    <!--</update>-->
+</mapper>

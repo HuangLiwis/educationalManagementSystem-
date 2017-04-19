@@ -1,6 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
-.gitignore
 .idea/workspace.xml
+*.iml
 
 dubbo-api/target/
 dubbo-customer/target/
