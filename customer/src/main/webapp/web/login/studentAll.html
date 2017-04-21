@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width,initial-scale=0.8, minimum-scale=0.8, maximum-scale=3"
+          name="viewport"/>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta property="qc:admins" content="754034015366713545637571540352652"/>
+    <meta property="wb:webmaster" content="1ad39047f32b5b6b"/>
+    <title>武汉工程大学统一身份认证平台</title>
+</head>
+<link href="../../css/login_studentAll.css" rel="stylesheet">
+
+<body onload="loadFresh();">
+<div class="auth_bg">
+    <img src="http://auth.wit.edu.cn/authserver/custom/images_login_new/img1.jpg" alt="">
+</div>
+<div class="auth_page_wrapper">
+    <div style="background: url(http://auth.wit.edu.cn/authserver/custom/images_login_new/alpha.png);position: fixed;top: 0;left: 0;width: 100%;height: 70px;z-index: 999;">
+        <div style="position: absolute;top:4px;left:30px;z-index:9999;"><Img
+                src="http://auth.wit.edu.cn/authserver/custom/images_login_new/logo.png" width="524" height="66"></div>
+        <div class="menuarea">
+            <ul class="menu">
+                <li><a href="javascript:void(0)" onclick="SetHome(window.location)" class="menu_link">设为首页</a></li>
+                <li><a href="javascript:void(0)" onclick="AddFavorite(window.location,document.title)"
+                       class="menu_link">加入收藏</a></li>
+                <li><a href="http://www.wit.edu.cn" class="menu_link">学校首页</a></li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin: 110px auto;margin-bottom: 50px; width: 1100px;height: 384px;position: relative;z-index: 9;overflow: hidden;box-sizing: border-box;">
+        <div class="box-left"
+             style="background-color: rgba(255, 255, 255, .9);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#e5ffffff,endColorstr=#e5ffffff);">
+            <h1><img src="http://auth.wit.edu.cn/authserver/custom/images_login_new/log-tit.png"></h1>
+            <form id="casLoginForm" class="fm-v clearfix amp-login-form" role="form"
+                  action="/login/studentLogin" method="get">
+                <ul>
+                    <li>
+                        <input id="username" name="studentId" placeholder="用户名" class="ipt1" type="text" value=""/>
+                        <span id="usernameError" style="display:none;" class="auth_error1">请输入用户名</span>
+                    </li>
+                    <li>
+                        <input id="password" name="password" placeholder="密码" class="ipt2" type="password" value=""
+                               autocomplete="off"/>
+                        <span id="passwordError" style="display:none;" class="auth_error1">请输入密码</span>
+                    </li>
+                    <li id="cpatchaDiv" style="display:none;">
+                        <i class="auth_icon auth_icon_bar"></i>
+                        <input type="text" placeholder="验证码" id="captchaResponse" name="captchaResponse"
+                               class="auth_input captcha-input"/>
+                        <img id="captchaImg" class="captcha-img" src="captcha.html" alt="验证码" title="验证码"/>
+                        <span style="cursor: pointer;color: #1dadff;margin-left: 2px;" id="changeCaptcha"
+                              class="chk_text">换一张</span>
+                        <span id="cpatchaError" style="display:none;" class="auth_error">请输入验证码</span>
+                    </li>
+                    <li>
+                        <p>
+                            <button type="submit" class="button">登&nbsp;&nbsp;录</button>
+                        </p>
+                    </li>
+                    <li><a href="http://nic.wit.edu.cn/info/1049/1201.htm">用户名及密码说明&nbsp;<img
+                            src="http://auth.wit.edu.cn/authserver/custom/images_login_new/faq.png"></a><span
+                            class="getpwd"><a
+                            href="getBackPasswordMainPage.do">忘记密码？</a></span></li>
+                </ul>
+                <input type="hidden" name="lt" value="LT-363401-qnuuXbZpiK7trEWZy36ILDNEe5OZIJ1492655309139-Q3tT-cas"/>
+                <input type="hidden" name="dllt" value="userNamePasswordLogin"/>
+                <input type="hidden" name="execution" value="e3s1"/>
+                <input type="hidden" name="_eventId" value="submit"/>
+                <input type="hidden" name="rmShown" value="1">
+            </form>
+        </div>
+        <div class="box-right"
+             style="background-color: rgba(255, 255, 255, .7);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2ffffff,endColorstr=#b2ffffff);">
+            <h2>登录说明</h2>
+            <ul>
+                <li>1.&nbsp;统一身份认证用户名为本人学号或者教工号，初始密码为本人身份证号后六位，如果身份证号以X结尾的，则X为大写。</li>
+                <li>2.&nbsp;第一次登录成功后请及时修改密码并创建密码提示问题，以便忘记密码后自助找回。</li>
+                <li>3.&nbsp;如有登录方面其他问题，请与网络信息中心联系，电话027-87905077。</li>
+                <li>4.&nbsp;为保障系统的稳定性，建议使用IE8.0及以上浏览器。</li>
+            </ul>
+
+        </div>
+        <div class="box-right1"
+             style="background-color: rgba(255, 255, 255, .5);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7fffffff,endColorstr=#7fffffff);">
+            <h2>移动校园APP下载安装</h2>
+            <ul>
+                <li>&nbsp;Android版：直接扫描下方二维码下载，如扫描后不能自动下载，可点击屏幕右上角的“在浏览器中打开”进行下载。</li>
+                <li><img src="http://auth.wit.edu.cn/authserver/custom/images_login_new/android.png" width="100px"
+                         alt="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+                        src="http://auth.wit.edu.cn/authserver/custom/images_login_new/ios.png" width="103px" alt="">
+                </li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Android版&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iOS版</li>
+                <li>&nbsp;iOS版：扫描上方的二维码下载iPhone企业版.</li>
+                <li>&nbsp;点击查看：<a target="_blank" href="http://nic.wit.edu.cn/info/1049/1402.htm">
+                    &nbsp;APP详细安装方法及特别说明</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="clearfloat"></div>
+</div>
+<div style="background:url(http://auth.wit.edu.cn/authserver/custom/images_login_new/alphab.png);position:fixed;left: 0px; bottom:0; width:100%; height:54px; z-index:999;">
+    <p style="width: 100%;height: 45px;line-height: 45px;text-align: center;font-family: '宋体';font-size: 13px;color: #fefefe;text-shadow: 1px 1px 0px rgba(0,0,0,0.15);z-index: 900000;">
+        版权所有&copy 武汉工程大学 | 地址：中国.湖北.武汉.东湖新技术开发区光谷一路206号 | 邮编：430205
+    </p>
+</div>
+
+<script type="text/javascript" src="/authserver/custom/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/authserver/custom/js/icheck.min.js"></script>
+
+<script type="text/javascript" src="/authserver/custom/js/login.js"></script>
+<script type="text/javascript" src="/authserver/custom/js/login-wisedu.js"></script>
+
+<script type="text/javascript">
+
+    // 选中tab框
+    var dllt = '';
+    if (dllt != '' && dllt == 'dynamicLogin') {
+        selectLi($("#dyLogin"));
+    } else {
+        selectLi($("#accountLogin"));
+    }
+
+    $(document).ready(function () {
+
+
+    });
+
+    function AddFavorite(sURL, sTitle) {
+        sURL = encodeURI(sURL);
+        try {
+            window.external.addFavorite(sURL, sTitle);
+        } catch (e) {
+            try {
+                window.sidebar.addPanel(sTitle, sURL, "");
+            } catch (e) {
+                alert("﻿加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置");
+            }
+        }
+    }
+
+    function SetHome(url) {
+        if (document.all) {
+            document.body.style.behavior = 'url(#default#homepage)';
+            document.body.setHomePage(url);
+        } else {
+            alert("您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页");
+        }
+    }
+
+
+</script>
+</body>
+
+
+</html>

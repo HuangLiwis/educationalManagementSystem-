@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+body {
+    color: #555555;
+    font-size: 14px;
+    font-family: "microsoft yahei";
+
+}
+
+#main {
+    width: 1002px;
+    margin: 12px auto;
+    padding-top: 130px;
+    height: 646px;
+    background: url(../img/bg_01.jpg) no-repeat;
+}
+
+.formData {
+    margin: 0px 0px 0px 600px;
+    width: 345px;
+    height: 391px;
+    background: url("../img/formbg.png") no-repeat;
+    position: relative;
+}
+
+.footData {
+    text-align: center;
+    margin: 50px 0px 0px 0px;
+    height: auto;
+    width: auto;
+}
+
+.formData .myText {
+    position: absolute;
+    top: 45px;
+    left: 35px;
+    color: #02466e;
+}
+
+.formData .myText #hanzi {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0px;
+    font-family: "Adobe 黑体 Std R";
+}
+
+.formData .myText #yingwen {
+    font-size: 14px;
+    font-family: "Ebrima";
+}
+
+.formData ul {
+    position: absolute;
+    top: 120px;
+    left: 34px;
+    float: left;
+}
+
+.formData ul li {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.formData ul li #studentId, #password {
+    margin: 7px 0px 8px 130px;
+    background: #f0f8ff;
+    border: 1px solid #6790b1;
+    width: 150px;
+    height: 24px;
+}
+
+.formData ul li #myReset, #mySubmit {
+    margin: 8px 8px;
+    width: 100px;
+    height: 34px;
+}
+.formData ul #forgetP{
+    margin-top: 26px;
+    text-align: left;
+    color: #a31bdb;
+}
+.footData {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 1002px;
+    font-size: 12px;
+}

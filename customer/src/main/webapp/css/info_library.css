@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li, a {
+    list-style: none;
+}
+
+body {
+    color: #555555;
+    font-size: 14px;
+    font-family: "microsoft yahei";
+}
+
+#header {
+    width: 100%;
+}
+
+#header .header_img {
+    margin: 0px auto;
+    height: 121px;
+    width: 100%;
+    background: url("http://218.199.187.110/tpl/images/headerBg.jpg");
+}
+
+#header .header_img .header_opac_logo {
+    width: 407px;
+    height: 121px;
+    margin-left: 20%;
+    background: url("http://218.199.187.110/tpl/images/header_img02.jpg") no-repeat;
+    float: left;
+}
+
+#header .header_img .header_opac_logo p {
+    margin-left: -150px;
+    margin-top: 30px;
+}
+
+#header .header_img .header_opac_logo .header_p {
+    margin-top: 0px;
+    font-size: 14px;
+}
+
+#header .header_left {
+    float: right;
+}
+
+#header .header_left .header_right_font {
+    margin-top: 84px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+.my_container {
+    margin: 0 0;
+    height: 450px;
+    background: #e6e6e6;
+    width: 100%;
+    padding: 30px;
+}
+
+#mylib_navigate {
+    width: 200px;
+    float: left;
+    text-align: center;
+}
+
+#mylib_navigate ul li {
+    padding-left: 20px;
+    height: 40px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.tab-content {
+    background: #EEEEEE;
+    float: left;
+    width: 80%;
+    height: 390px;
+    padding: 15px;
+}
+
+.footData {
+    margin-top: 25px;
+    float: none;
+    text-align: center;
+}
+
+#menu1{
+
+}
+#menu1 p{
+    font-size: 20px;
+}

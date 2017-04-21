@@ -1,0 +1,600 @@
+/* iCheck plugin Square skin, green
+----------------------------------- */
+.icheckbox_square-green,
+.iradio_square-green {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+    background: url(green.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_square-green {
+    background-position: 0 0;
+}
+.icheckbox_square-green.hover {
+    background-position: -24px 0;
+}
+.icheckbox_square-green.checked {
+    background-position: -48px 0;
+}
+.icheckbox_square-green.disabled {
+    background-position: -72px 0;
+    cursor: default;
+}
+.icheckbox_square-green.checked.disabled {
+    background-position: -96px 0;
+}
+
+.iradio_square-green {
+    background-position: -120px 0;
+}
+.iradio_square-green.hover {
+    background-position: -144px 0;
+}
+.iradio_square-green.checked {
+    background-position: -168px 0;
+}
+.iradio_square-green.disabled {
+    background-position: -192px 0;
+    cursor: default;
+}
+.iradio_square-green.checked.disabled {
+    background-position: -216px 0;
+}
+
+/* HiDPI support */
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+    .icheckbox_square-green,
+    .iradio_square-green {
+        background-image: url(green@2x.png);
+        -webkit-background-size: 240px 24px;
+        background-size: 240px 24px;
+    }
+}
+
+.auth_bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+}
+
+.auth_bg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+}
+
+.auth_page_wrapper {
+    width: 1100px;
+    margin: 10% auto;
+    /*margin-left: 100px;*/
+    padding: 0;
+    font-family: 'Microsoft YaHei';
+    font-size: 13px;
+    color: #676A6C;
+}
+
+.auth_login_content {
+    margin-top: 100px;
+    height: 400px;
+}
+
+.auth_login_content .auth_login_left {
+    width: 50%;
+    height: 287px;
+    float: left;
+    position: relative;
+}
+
+.auth_login_left .auth_others {
+    position: absolute;
+    left: 130px;
+    bottom: 0;
+}
+
+.auth_login_left .auth_others a .auth_icon_bg {
+    float: left;
+    height: 34px;
+    background-color: rgba(255, 255, 255, .8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#C8ffffff, endColorstr=#C8ffffff);
+}
+
+.auth_login_left .auth_others a .auth_icon_bg:hover {
+    background-color: #ffffff;
+}
+
+.auth_login_left .auth_others a i {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+}
+
+.auth_icon_qq {
+    background: url("../images/icons.png") 8px -102px no-repeat;
+}
+
+.auth_icon_weibo {
+    background: url("../images/icons.png") -20px -102px no-repeat;
+}
+
+.auth_icon_weixin {
+    background: url("../images/icons.png") -50px -102px no-repeat;
+}
+
+.auth_icon_user {
+    background: url("../images/icons.png") 6px -73px no-repeat;
+}
+
+.auth_icon_pwd {
+    background: url("../images/icons.png") -19px -73px no-repeat;
+}
+
+.auth_icon_bar {
+    background: url("../images/icons.png") -43px -73px no-repeat;
+}
+
+.auth_login_content .auth_login_right {
+    width: 50%;
+    float: right;
+}
+
+.auth_login_left .auth_others h4 {
+    font-size: 16px;
+    color: #fff;
+    padding-bottom: 5px;
+    font-weight: 600;
+}
+
+.auth_login_left .auth_others ul, .auth_tab_links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.auth_login_left .auth_others li {
+    margin-top: 15px;
+    height: 34px;
+    line-height: 34px;
+}
+
+.auth_login_left .auth_others li a {
+    text-decoration: none;
+}
+
+.auth_login_left .auth_others .auth_icon_text {
+    width: 174px;
+    padding-left: 15px;
+    color: #fff;
+    font-size: 13px;
+    background-color: rgba(255, 255, 255, .4);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff);
+    display: inline-block;
+}
+
+.auth_login_left .auth_others .auth_icon_text:hover {
+    background-color: rgba(255, 255, 255, .6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99ffffff, endColorstr=#99ffffff);
+}
+
+.auth_tab {
+    width: 339px;
+    margin-left: -85px;
+}
+
+.auth_tab_links li {
+    width: 50%;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    display: block;
+    float: left;
+    background-color: rgba(138, 138, 137, .8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#998A8A89, endColorstr=#998A8A89);
+    cursor: pointer;
+}
+
+.auth_tab_links li span {
+    color: #ffffff;
+}
+
+.auth_tab_links li.selected {
+    background-color: rgba(255, 255, 255, .9);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5ffffff, endColorstr=#E5ffffff);
+}
+
+.auth_tab_links li.selected span {
+    color: #676a6c;
+}
+
+.auth_tab_content {
+    padding: 25px 35px 22px 35px;
+    background-color: rgba(255, 255, 255, .9);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5ffffff, endColorstr=#E5ffffff);
+    min-height: 205px;
+}
+
+.auth_tab_content_item {
+    position: relative;
+}
+
+.auth_tab_content_item p {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 17px;
+}
+
+.auth_tab_content_item p label {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.auth_icon {
+    background-color: rgb(242, 242, 242);
+    border: 1px solid #ccc;
+    border-right: none;
+    width: 32px;
+    height: 32px;
+    float: left;
+}
+
+.auth_input {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 209px;
+    margin: 0;
+    color: #676a6c;
+}
+
+.auth_input:focus {
+    outline: none;
+}
+
+.auth_login_btn {
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 3px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    width: 100%;
+}
+
+
+
+
+.primary {
+    background-color: #1ab394;
+    border-color: #1ab394;
+}
+
+.primary:hover {
+    background-color: #18a689;
+    border-color: #18a689;
+}
+
+.warning {
+    background-color: #EBDC99;
+    border-color: #EBDC99;
+    color: #676a6c;
+}
+
+.warning:hover {
+    background-color: #EEDA80;
+    border-color: #EEDA80;
+    color: #333;
+}
+
+.abs_right {
+    position: absolute;
+    right: 0;
+}
+
+.full_width {
+    display: block;
+}
+
+.auth_login_forgetp {
+    text-decoration: none;
+    color: #676a6c;
+}
+
+.auth_login_forgetp:hover {
+    color: #333;
+}
+
+.auth_login_forgetp small {
+    font-size: 12px;
+}
+
+.auth_error {
+    position: relative;
+    color: #ED5565;
+    font-size: 12px;
+    top: 0px !important;
+    left: 45px;
+}
+.auth_error1 {
+    position: relative;
+    width:240px !important;
+    height: 20px;
+    line-height: 20px;
+    color: #ED5565;
+    font-size: 12px;
+    top: 0px !important;
+    left: -55px;
+}
+
+.clearfloat {
+    clear: both;
+}
+
+.auth_login_footer {
+    width: 100%;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.auth_login_footer span {
+    color: #f3f3f3;
+    font-size: 12px;
+}
+
+.captcha-img {
+    width: 92px;
+    height: 34px;
+    margin-left: 3px;
+    vertical-align: top;
+}
+
+.captcha-input {
+    width: 65px;
+}
+
+.dynamicCode {
+    width: 90px;
+    padding: 6px 8px;
+    margin-top: 0px;
+    cursor: pointer;
+    font-family: 'Microsoft YaHei';
+}
+
+.login-ul-li-full{
+    width: 100% !important;
+}
+
+/*二维码样式*/
+#qrCodeImage{
+    padding:2px;
+    border: 1px solid #CCC;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,.3)
+}
+
+.qrCenter{
+    text-align: center;
+}
+
+#appCodeRefresh {
+    position: absolute;
+    top: 0;
+    left: 76px;
+    width: 117px;
+    height: 118px;
+    cursor: pointer;
+}
+.appCode-mask {
+    height: 100%;
+    background: #000;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+
+#appCodeLoginLoad {
+    position: absolute;
+    top: 0;
+    left: 76px;
+    width: 117px;
+    height: 118px;
+}
+.appCode-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 44px;
+    text-align: center;
+    color: #fff;
+    line-height: 26px;
+}
+.appCode-wrap {
+    text-align: center;
+    color: #fff;
+    line-height: 26px;
+}
+
+
+
+/*new_login_css*/
+ol, ul {
+    list-style: none;
+    padding: 0px;
+}
+a {
+    text-decoration: none;
+}
+.box-left{
+    float:left;
+    width:448px;
+    padding:25px 60px;
+    box-sizing:border-box;
+    text-align:left;
+}
+
+.box-left h1{
+    margin-bottom:10px;
+    margin-left:-20px;
+}
+.ipt1{
+    width:318px;
+    height:32px;
+    line-height:32px;
+    border:1px solid #bac7d2;
+    color: #676a6c;
+    text-indent:5px;
+    background:url(http://auth.wit.edu.cn/authserver/custom/images_login_new/ico-log.png) no-repeat 290px 10px;
+}
+.ipt2{
+    width:318px;
+    height:32px;
+    line-height:32px;
+    border:1px solid #bac7d2;
+    color: #676a6c;
+    text-indent:5px;
+    background:url(http://auth.wit.edu.cn/authserver/custom/images_login_new/ico-log.png) no-repeat 290px -16px;
+}
+.ipt-yzm{
+    width:136px;
+    height:30px;
+    line-height:30px;
+    border:1px solid #e3e2df;
+}
+.box-left li{
+    height:44px;
+    line-height:44px;
+    margin-bottom:20px;
+}
+.box-left li img{
+    vertical-align:middle;
+}
+.box-left li p{
+    margin-top:10px;
+}
+.box-left li p button{
+    background:#f59204;
+    width:320px;
+    height:42px;
+    line-height:42px;
+    border:0px;
+    color:#fff;
+    font-size:16px;
+    font-family:"微软雅黑";
+}
+.box-left li span{
+    float:right;
+    display:inline-block;
+    width:80px;
+    font-size:14px;
+}
+.box-left li a{
+    font-size:14px;
+    color:#1472dc;
+}
+.box-left li.getpwd{
+    float:right;
+    height:40px;
+    line-height:40px;
+    font-size:13px;
+    margin-top:20px;
+}
+.getpwd a{
+    color:#999;
+}
+.box-left p{
+    display:block;
+    width:448px;
+}
+.box-right1{
+    float: right;
+    width: 332px;
+    padding: 33px 27px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.box-right1 h2{
+    font-size:18px;
+    color:#111;
+    margin-bottom:20px;
+}
+.box-right1 li{
+    font-size:12px;
+    line-height:20px;
+    color:#515151;
+    margin-bottom:20px;
+}
+
+.box-right{
+    float:left;
+    width:320px;
+    padding:33px 30px;
+    box-sizing:border-box;
+    text-align:left;
+}
+.box-right h2{
+    font-size:18px;
+    color:#111;
+    margin-bottom:20px;
+}
+.box-right li{
+    font-size:12px;
+    line-height:20px;
+    color:#515151;
+    margin-bottom:20px;
+}
+
+.menuarea{
+    float: right;
+    width: auto;
+    height: 70px;
+}
+.menu {
+}
+.menu > li {
+    float: left;
+}
+.menu > li > a {
+    width: auto;
+    height: 70px;
+    display: block;
+    padding: 0px 10px;
+    font-family: "宋体";
+    font-size: 12px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fefefe;
+    padding-top: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.menu li a:hover, .curr_menu {
+    background:url(../images/navbg.png) repeat;
+    text-decoration:none;
+}
+.menu .sub_menu {
+    display: none;
+    position: absolute;
+}
+

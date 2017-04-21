@@ -1,7 +1,9 @@
 package com.xiaozhi.controller;
 
+import com.google.gson.Gson;
 import com.xiaozhi.model.StudentVo;
 import com.xiaozhi.service.LoginService;
+import com.xiaozhi.utils.JsonUtils;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.http.server.ServletServerHttpRequest;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -30,8 +33,9 @@ public class LoginController{
     public StudentVo studentLogin(@RequestParam String studentId, @RequestParam String password,
                                   HttpServletResponse response, HttpServletRequest request){
         StudentVo studentVo = loginService.studentLogin(studentId, password);
-        request.getCookies().clone();
-        //todo 放入cookies
+        request.getSession().setAttribute("student", studentVo);
+        Cookie cookie = new Cookie("student", JsonUtils.object2json(studentVo));
+        response.addCookie(cookie);
         return studentVo;
     }
 }
