@@ -10,6 +10,7 @@
           <element id="archive" name="serviceApi-1.0-SNAPSHOT.jar">
             <element id="module-output" name="serviceApi" />
           </element>
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.6.2" />
           <element id="library" level="project" name="Maven: junit:junit:4.12" />
           <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
           <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.16.10" />

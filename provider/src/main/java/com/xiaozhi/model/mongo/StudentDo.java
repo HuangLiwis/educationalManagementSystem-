@@ -16,17 +16,20 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(value = "student",noClassnameStored = true) //不保存类名在文档中
+@Entity(value = "student", noClassnameStored = true) //不保存类名在文档中
 public class StudentDo implements Serializable{
     @Id
     private String id;                 //学号
     private String name;               //姓名
     private String password;           //密码
+    private Integer sex;               //性别
+    private Integer education;         //学位
     private Integer academy;           //学院
     private Integer grade;             //班级
     /**
      * @see com.xiaozhi.staticData.AcademyEnum
      * @see MajorEnum
+     * @see com.xiaozhi.staticData.StudentCommonEnum
      */
     private String phoneNumber;         //电话号
     private String peopleId;            //身份证号

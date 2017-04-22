@@ -2,8 +2,12 @@ package com.xiaozhi.serviceImpl;
 
 import com.alibaba.dubbo.common.utils.CollectionUtils;
 import com.xiaozhi.dao.mongo.StudentDao;
+import com.xiaozhi.exception.ServiceException;
 import com.xiaozhi.model.StudentVo;
 import com.xiaozhi.model.mongo.StudentDo;
+import com.xiaozhi.model.result.ServiceResult;
+import com.xiaozhi.result.BaseResult;
+import com.xiaozhi.result.ResultCode;
 import com.xiaozhi.service.LoginService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -20,17 +24,18 @@ public class LoginServiceImpl implements LoginService{
     private StudentDao studentDao;
 
     @Override
-    public StudentVo studentLogin(String studentId, String password){
+    public BaseResult<StudentVo> studentLogin(String studentId, String password){
         StudentDo studentDo = new StudentDo();
         studentDo.setId(studentId);
         studentDo.setPassword(password);
         List<StudentDo> studentDos = studentDao.find(studentDo);
         if (CollectionUtils.isEmpty(studentDos)) {
-            //todo 抛出异常
+            //throw new ServiceException(ResultCode.DATABASE_RETURN_NULL);
+            //todo 抛出异常问题解决!!!
         }
         studentDo = studentDos.get(0);
         StudentVo studentVo = new StudentVo();
         BeanUtils.copyProperties(studentDo, studentVo);
-        return studentVo;
+        return new ServiceResult<>(studentVo);
     }
 }

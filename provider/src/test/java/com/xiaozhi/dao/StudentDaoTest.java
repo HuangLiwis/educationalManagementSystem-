@@ -4,6 +4,7 @@ import com.xiaozhi.dao.mongo.StudentDao;
 import com.xiaozhi.model.mongo.StudentDo;
 import com.xiaozhi.staticData.AcademyEnum;
 import com.xiaozhi.staticData.MajorEnum;
+import com.xiaozhi.staticData.StudentCommonEnum;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +26,8 @@ public class StudentDaoTest{
 
     @Before
     public void initObject(){
-        studentDo = new StudentDo("1305120301", "黄智", "huangzhi", AcademyEnum.Conputer.getAcademyId(),
+        studentDo = new StudentDo("1305120309", "黄智", "huangzhi", StudentCommonEnum.MAN.getCode(),
+                StudentCommonEnum.BENKE.getCode(), AcademyEnum.Conputer.getAcademyId(),
                 MajorEnum.SoftwareEngineering.getMajorId(), "18086436490", "610423199405012011");
     }
 
