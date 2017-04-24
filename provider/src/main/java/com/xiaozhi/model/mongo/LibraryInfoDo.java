@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(value = "libraryInfo", noClassnameStored = true)
-public class LibraryInfoDo{
+public class LibraryInfoDo implements Serializable{
     @Id
     private String id;                 //学号
     private Integer violates;          //违章次数
@@ -28,7 +29,7 @@ public class LibraryInfoDo{
     private List<LibraryBook> libraryBooks;   //借阅书籍
 
     @Data
-    public static class LibraryBook{
+    public static class LibraryBook implements Serializable{
         private String bookId;           //书籍编号
         private String name;             //书名
         private String chargePerson;     //负责人

@@ -15,13 +15,14 @@
     <!-- 对静态资源文件的访问，交给default servlet handler处理 -->
     <mvc:default-servlet-handler/>
     <!-- 默认的注解映射的支持 -->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven/>
 
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp"/>
+        <property name="prefix" value="/web/"/>
+        <property name="suffix" value=".html"/>
     </bean>
+
 
 </beans>

@@ -2,12 +2,10 @@ package com.xiaozhi.serviceImpl;
 
 import com.alibaba.dubbo.common.utils.CollectionUtils;
 import com.xiaozhi.dao.mongo.StudentDao;
-import com.xiaozhi.exception.ServiceException;
 import com.xiaozhi.model.StudentVo;
 import com.xiaozhi.model.mongo.StudentDo;
-import com.xiaozhi.model.result.ServiceResult;
+import com.xiaozhi.result.resultImpl.ServiceResult;
 import com.xiaozhi.result.BaseResult;
-import com.xiaozhi.result.ResultCode;
 import com.xiaozhi.service.LoginService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -24,7 +22,7 @@ public class LoginServiceImpl implements LoginService{
     private StudentDao studentDao;
 
     @Override
-    public BaseResult<StudentVo> studentLogin(String studentId, String password){
+    public ServiceResult<StudentVo> studentLogin(String studentId, String password){
         StudentDo studentDo = new StudentDo();
         studentDo.setId(studentId);
         studentDo.setPassword(password);

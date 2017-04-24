@@ -2,6 +2,7 @@ package com.xiaozhi.service;
 
 import com.xiaozhi.model.StudentVo;
 import com.xiaozhi.result.BaseResult;
+import com.xiaozhi.result.resultImpl.ServiceResult;
 
 /**
  * Created by 小智 on 2017/4/18 0018.
@@ -15,5 +16,5 @@ public interface LoginService{
      * @param password  密码
      * @return 学生基本信息
      */
-    BaseResult<StudentVo> studentLogin(String studentId, String password);
+    ServiceResult<StudentVo> studentLogin(String studentId, String password);
 }

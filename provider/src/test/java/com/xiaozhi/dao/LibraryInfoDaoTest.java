@@ -43,11 +43,14 @@ public class LibraryInfoDaoTest{
     @Test
     public void update(){
         LibraryInfoDo.LibraryBook book = new LibraryInfoDo.LibraryBook();
-        book.setName("计算机入门");
-        book.setBookId("051301");
+        book.setName("软件工程");
+        book.setBookId("051302");
         book.setChargePerson("王大海");
         book.setBorrowTime(dateFormat.format(new Date()));
+        libraryInfoDo = new LibraryInfoDo();
+        libraryInfoDo.setId("1305120309");
         libraryInfoDo.setLibraryBook(book);
+        //libraryInfoDo.setBorrows(1);
         libraryInfoDao.update(libraryInfoDo);
     }
 

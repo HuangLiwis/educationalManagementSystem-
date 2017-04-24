@@ -5,7 +5,7 @@ import com.xiaozhi.dao.mongo.LibraryInfoDao;
 import com.xiaozhi.model.LibraryInfoVo;
 import com.xiaozhi.model.StudentVo;
 import com.xiaozhi.model.mongo.LibraryInfoDo;
-import com.xiaozhi.model.result.ServiceResult;
+import com.xiaozhi.result.resultImpl.ServiceResult;
 import com.xiaozhi.result.BaseResult;
 import com.xiaozhi.service.LibraryService;
 import org.springframework.beans.BeanUtils;
@@ -17,16 +17,16 @@ import java.util.List;
 /**
  * Created by 小智 on 2017/4/22 0022.
  */
-@Service
+@Service("libraryServiceImpl")
 public class LibraryServiceImpl implements LibraryService{
     @Resource
     LibraryInfoDao libraryInfoDao;
 
     @Override
-    public BaseResult<LibraryInfoVo> findLibraryInfo(StudentVo studentVo, String studentId){
+    public ServiceResult<LibraryInfoVo> findLibraryInfo(StudentVo studentVo){
         LibraryInfoVo libraryInfoVo = new LibraryInfoVo();
         LibraryInfoDo libraryInfoDo = new LibraryInfoDo();
-        libraryInfoDo.setId(studentId);
+        libraryInfoDo.setId(studentVo.getId());
         List<LibraryInfoDo> libraryInfoDos = libraryInfoDao.find(libraryInfoDo);
         if (CollectionUtils.isEmpty(libraryInfoDos)) {
             //throw
@@ -37,21 +37,21 @@ public class LibraryServiceImpl implements LibraryService{
     }
 
     @Override
-    public BaseResult<Void> addBorrowBook(StudentVo studentVo, LibraryInfoVo.LibraryBook book){
+    public ServiceResult<Void> addBorrowBook(StudentVo studentVo, LibraryInfoVo.LibraryBook book){
         LibraryInfoDo libraryInfoDo = new LibraryInfoDo();
         libraryInfoDo.setId(studentVo.getId());
         LibraryInfoDo.LibraryBook bookDo = new LibraryInfoDo.LibraryBook();
         BeanUtils.copyProperties(book, bookDo);
         libraryInfoDo.setLibraryBook(bookDo);
         libraryInfoDao.update(libraryInfoDo);
-        return new ServiceResult<>("");
+        return new ServiceResult<>();
     }
 
     @Override
-    public BaseResult<Void> updateLibraryInfo(StudentVo studentVo, LibraryInfoVo libraryInfoVo){
+    public ServiceResult<Void> updateLibraryInfo(StudentVo studentVo, LibraryInfoVo libraryInfoVo){
         LibraryInfoDo libraryInfoDo = new LibraryInfoDo();
         BeanUtils.copyProperties(libraryInfoVo, libraryInfoDo);
         libraryInfoDao.update(libraryInfoDo);
-        return new ServiceResult<>("");
+        return new ServiceResult<>();
     }
 }

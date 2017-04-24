@@ -63,6 +63,7 @@ public class LibraryInfoDaoImpl implements LibraryInfoDao{
             UpdateOperations<LibraryInfoDo> newBook = datastore.createUpdateOperations(LibraryInfoDo.class).addToSet(
                     "libraryBooks", libraryInfoDo.getLibraryBook());
             datastore.updateFirst(oldClickEvent, newBook);
+            return;
         }
         datastore.updateFirst(oldClickEvent, newClickEvent);
     }

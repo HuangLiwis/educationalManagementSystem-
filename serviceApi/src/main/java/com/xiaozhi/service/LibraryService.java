@@ -3,6 +3,7 @@ package com.xiaozhi.service;
 import com.xiaozhi.model.LibraryInfoVo;
 import com.xiaozhi.model.StudentVo;
 import com.xiaozhi.result.BaseResult;
+import com.xiaozhi.result.resultImpl.ServiceResult;
 
 /**
  * Created by 小智 on 2017/4/22 0022.
@@ -13,15 +14,15 @@ public interface LibraryService{
     /**
      * 查询By学号
      */
-    BaseResult<LibraryInfoVo> findLibraryInfo(StudentVo studentVo, String studentId);
+    ServiceResult<LibraryInfoVo> findLibraryInfo(StudentVo studentVo);
 
     /**
      * 增加借阅书籍
      */
-    BaseResult<Void> addBorrowBook(StudentVo studentVo, LibraryInfoVo.LibraryBook book);
+    ServiceResult<Void> addBorrowBook(StudentVo studentVo, LibraryInfoVo.LibraryBook book);
 
     /**
      * 更新信息
      */
-    BaseResult<Void> updateLibraryInfo(StudentVo studentVo, LibraryInfoVo libraryInfoVo);
+    ServiceResult<Void> updateLibraryInfo(StudentVo studentVo, LibraryInfoVo libraryInfoVo);
 }

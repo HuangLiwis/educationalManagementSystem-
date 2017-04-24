@@ -1,16 +1,13 @@
 package com.xiaozhi.aop;
 
 import com.xiaozhi.exception.ServiceException;
-import com.xiaozhi.model.result.ServiceResult;
+import com.xiaozhi.result.resultImpl.ServiceResult;
 import com.xiaozhi.result.BaseResult;
 import com.xiaozhi.result.ResultCode;
 import com.xiaozhi.utils.JsonUtils;
-import javafx.scene.input.DataFormat;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.springframework.aop.ThrowsAdvice;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;

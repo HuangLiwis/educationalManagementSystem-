@@ -2,6 +2,9 @@ package com.xiaozhi.controller;
 
 import com.xiaozhi.model.StudentVo;
 import com.xiaozhi.result.BaseResult;
+import com.xiaozhi.result.ResultCode;
+import com.xiaozhi.result.resultImpl.ServiceResult;
+import com.xiaozhi.result.resultImpl.WebResult;
 import com.xiaozhi.service.LoginService;
 import com.xiaozhi.utils.JsonUtils;
 import org.springframework.stereotype.Controller;
@@ -25,16 +28,19 @@ public class LoginController{
     private LoginService loginService;
 
     @ResponseBody
-    @RequestMapping(value = "/studentLogin", method = RequestMethod.GET)
-    public StudentVo studentLogin(@RequestParam String studentId, @RequestParam String password,
+    @RequestMapping(value = "/studentLogin", method = RequestMethod.POST)
+    public WebResult studentLogin(@RequestParam String studentId, @RequestParam String password,
                                   HttpServletResponse response, HttpServletRequest request){
-        BaseResult<StudentVo> result = loginService.studentLogin(studentId, password);
+        ServiceResult<StudentVo> result = loginService.studentLogin(studentId, password);
         StudentVo studentVo = null;
-        if (result.isSuccess())
-            studentVo = result.getData();
+        if (!result.isSuccess())
+            return new WebResult(ResultCode.FIELD);
+        studentVo = result.getData();
         request.getSession().setAttribute("student", studentVo);
         Cookie cookie = new Cookie("student", JsonUtils.object2json(studentVo));
+        cookie.setMaxAge(60 * 30);
+        cookie.setPath("/");
         response.addCookie(cookie);
-        return studentVo;
+        return new WebResult();
     }
 }
