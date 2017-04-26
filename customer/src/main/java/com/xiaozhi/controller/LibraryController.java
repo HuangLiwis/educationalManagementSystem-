@@ -29,8 +29,9 @@ public class LibraryController{
 
     @ResponseBody
     @RequestMapping(value = "/libraryInfo", method = RequestMethod.GET)
-    public LibraryInfoVo studentLogin(@ModelAttribute StudentVo student){
-        ServiceResult<LibraryInfoVo> result = libraryService.findLibraryInfo(student);
+    public LibraryInfoVo studentLogin(@CookieValue String student){
+        StudentVo studentVo = JsonUtils.json2object(student, StudentVo.class);
+        ServiceResult<LibraryInfoVo> result = libraryService.findLibraryInfo(studentVo);
         LibraryInfoVo libraryInfoVo = null;
         if (result.isSuccess())
             libraryInfoVo = result.getData();
@@ -45,7 +46,6 @@ public class LibraryController{
         ServiceResult<Void> result = libraryService.addBorrowBook(studentVo, book);
         if (!result.isSuccess())
             log.warn("摊上大事了");
-        // return "information/library.html";
-        return "redirect: /web/information/library.html";
+        return "redirect: /web/information/library.jsp";
     }
 }

@@ -24,4 +24,12 @@ public class StudentVo implements Serializable{
      */
     private String phoneNumber;         //电话号
     private String peopleId;            //身份证号
+
+    public boolean isIllegal(){
+        if (id == null || "".equals(id)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

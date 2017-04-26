@@ -6,7 +6,7 @@ import com.xiaozhi.result.ResultCode;
  * Created by 小智 on 2017/4/22 0022.
  * 自定义异常，用于service出现的各种异常，方便AOP处理
  */
-public class ServiceException extends Exception{
+public class ServiceException extends RuntimeException{
     /**
      * @see com.xiaozhi.result.ResultCode
      */
@@ -18,7 +18,9 @@ public class ServiceException extends Exception{
         this.errorCode = resultCode.getCode();
         this.errorDescribe = resultCode.getDescribe();
     }
+
     public ServiceException(ResultCode resultCode){
+        super();
         this.errorCode = resultCode.getCode();
         this.errorDescribe = resultCode.getDescribe();
     }

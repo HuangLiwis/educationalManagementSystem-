@@ -17,4 +17,9 @@
     <dubbo:reference version="1.0" id="testService" interface="com.xiaozhi.service.TestService" check="false"/>
     <dubbo:reference version="1.0" id="loginService" interface="com.xiaozhi.service.LoginService" check="false"/>
     <dubbo:reference version="1.0" id="libraryService" interface="com.xiaozhi.service.LibraryService" check="false"/>
+    <dubbo:reference version="1.0" id="campusNetService" interface="com.xiaozhi.service.CampusNetService"
+                     check="false"/>
+    <dubbo:reference version="1.0" id="financialService" interface="com.xiaozhi.service.FinancialService"
+                     check="false"/>
+
 </beans>

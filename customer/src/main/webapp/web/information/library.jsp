@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -19,7 +21,7 @@
         </div>
         <div class="header_left">
             <p class="header_right_font">
-                <font color="blue">黄智</font>
+                <font color="blue">${student.name}</font>
                 <strong><a href="" style="font-family: 黑体">注销</a></strong>
             </p>
         </div>
@@ -75,9 +77,9 @@
                                 <input type="button" class="btn btn-success" VALUE="修改信息"/>
                             </div>
                         </TD>
-                        <TD><span class="bluetext">姓名：</span>黄智</TD>
-                        <TD><span class="bluetext">证件号： </span>1305120309</TD>
-                        <TD><span class="bluetext">条码号：</span>1305120309</TD>
+                        <TD><span class="bluetext">姓名：</span>${student.name}</TD>
+                        <TD><span class="bluetext">证件号： </span>${student.id}</TD>
+                        <TD><span class="bluetext">条码号：</span>${student.id}</TD>
                     </TR>
                     <TR>
                         <TD><span class="bluetext">失效日期：</span>2017-06-25</TD>
@@ -101,7 +103,7 @@
                     </TR>
                     <TR>
                         <TD colspan="2"><span class="bluetext">Email：</span></TD>
-                        <TD colspan="2"><span class="bluetext">身份证号： </span>61042319940501201X</TD>
+                        <TD colspan="2"><span class="bluetext">身份证号： </span>${student.peopleId}</TD>
                     </TR>
                     <TR>
                         <TD><span class="bluetext">工作单位：</span>计算机科学与工程学院计算机类2013计算机类03</TD>
@@ -158,7 +160,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="value in libraryInfo">
+                    <tr v-for="value in libraryInfo.libraryBooks">
                         <td>{{value.bookId}}</td>
                         <td>{{value.name}}</td>
                         <td>{{value.chargePerson}}</td>
@@ -196,9 +198,9 @@
             this.$http.get(url).then(function (data) {
                 var json = data.bodyText;
                 var jj = JSON.parse(json);
-                //console.info(jj);
-                //console.info(json);
-                this.libraryInfo = jj["libraryBooks"];
+                console.info(jj);
+                console.info(json);
+                this.libraryInfo = jj;
             }, function (response) {
                 console.info(response);
             })

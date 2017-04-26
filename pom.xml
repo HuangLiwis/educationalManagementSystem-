@@ -30,7 +30,8 @@
 
     <properties>
         <dubbo.version>2.5.3</dubbo.version>
-        <spring-framework.version>4.3.5.RELEASE</spring-framework.version>
+        <!--<spring-framework.version>4.3.5.RELEASE</spring-framework.version>-->
+        <spring-framework.version>4.1.7.RELEASE</spring-framework.version>
         <lombok.version>1.16.10</lombok.version>
         <zookeeper.vsersion>3.5.1-alpha</zookeeper.vsersion>
         <mysql.version>5.1.38</mysql.version>

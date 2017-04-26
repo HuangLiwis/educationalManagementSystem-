@@ -7,14 +7,14 @@
     <dubbo:application name="dubbo-provider"/>
     <dubbo:protocol id="dubbo" name="dubbo" port="21521" threads="300"/>
 
-    <dubbo:provider protocol="dubbo" />
+    <dubbo:provider protocol="dubbo"/>
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry address="zookeeper://127.0.0.1:2181" check="false" />
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" check="false"/>
     <!-- 要暴露的服务接口 -->
-    <dubbo:service version="1.0" interface="com.xiaozhi.service.TestService" ref="testServiceImpl" />
-    <dubbo:service version="1.0" interface="com.xiaozhi.service.LoginService" ref="loginServiceImpl" />
-    <dubbo:service version="1.0" interface="com.xiaozhi.service.LibraryService" ref="libraryServiceImpl" />
-
-
+    <dubbo:service version="1.0" interface="com.xiaozhi.service.TestService" ref="testServiceImpl"/>
+    <dubbo:service version="1.0" interface="com.xiaozhi.service.LoginService" ref="loginServiceImpl"/>
+    <dubbo:service version="1.0" interface="com.xiaozhi.service.LibraryService" ref="libraryServiceImpl"/>
+    <dubbo:service version="1.0" interface="com.xiaozhi.service.CampusNetService" ref="campusNetServiceImpl"/>
+    <dubbo:service version="1.0" interface="com.xiaozhi.service.FinancialService" ref="financialService"/>
 
 </beans>

@@ -25,7 +25,7 @@ public class LibraryInfoDo implements Serializable{
     private Integer borrows;           //累计借阅次数
     private Integer overdraft;         //欠款金额
     private Integer notReturns;        //未还书籍数
-    private LibraryBook libraryBook;   //当前借阅书籍
+    private LibraryBook libraryBook = new LibraryBook();   //当前借阅书籍
     private List<LibraryBook> libraryBooks;   //借阅书籍
 
     @Data

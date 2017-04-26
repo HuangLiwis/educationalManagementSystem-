@@ -60,10 +60,7 @@ public class LibraryInfoDaoImpl implements LibraryInfoDao{
             newClickEvent.set("violates", libraryInfoDo.getViolates());
         }
         if (null != libraryInfoDo.getLibraryBook()) {
-            UpdateOperations<LibraryInfoDo> newBook = datastore.createUpdateOperations(LibraryInfoDo.class).addToSet(
-                    "libraryBooks", libraryInfoDo.getLibraryBook());
-            datastore.updateFirst(oldClickEvent, newBook);
-            return;
+            newClickEvent.addToSet("libraryBooks", libraryInfoDo.getLibraryBook());
         }
         datastore.updateFirst(oldClickEvent, newClickEvent);
     }

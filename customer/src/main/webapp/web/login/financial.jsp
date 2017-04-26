@@ -6,15 +6,15 @@
   To change this template use File | Settings | File Templates.
 -->
 <!--图书馆-->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>登录页面</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <script type="text/javascript" src="../../js/vue.min.js"></script>
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../../css/login_common.css">
-
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#mySubmit").click(function () {
@@ -24,7 +24,7 @@
                     },
                     function (data, status) {
                         if (data.code == 200)
-                            window.location.href = "/web/information/library.html";
+                            window.location.href = "/web/information/financial.jsp";
                         else
                             alert("帐号或密码错误！");
                     });
@@ -36,11 +36,11 @@
 <div id="main">
     <div class="formData" style="background: url('../../img/formbgCommon.png')">
         <div class="myText">
-            <p id="hanzi">图书馆身份验证</p>
-            <p id="yingwen">Library Identity Service</p>
+            <p id="hanzi">财务处身份验证</p>
+            <p id="yingwen">Financial Department Identity Service</p>
         </div>
         <ul>
-            <li><input type="number" id="studentId" name="studentId" placeholder="请输入学号"></li>
+            <li><input type="text" id="studentId" name="studentId" placeholder="请输入学号"></li>
             <li><input type="password" id="password" name="password" placeholder="请输入密码"></li>
             <li>
                 <input type="reset" class="btn btn-info" id="myReset" value="重 置">

@@ -20,6 +20,18 @@
     <mvc:annotation-driven/>
 
 
+    <!--Log Aop-->
+    <aop:config>
+        <aop:aspect id="logMonitor" ref="logAndResultAspect">
+            <aop:pointcut id="monitor"
+                          expression="execution(* com.xiaozhi.serviceImpl.*.*(..))"/>
+            <aop:around pointcut-ref="monitor" method="around"/>
+            <aop:before method="before" pointcut-ref="monitor"/>
+        </aop:aspect>
+    </aop:config>
+    <bean id="logAndResultAspect" class="com.xiaozhi.aop.LogAndResultAspect"/>
+
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsp/"/>

@@ -1,11 +1,12 @@
 <!--
-  Created by IntelliJ IDEA.
-  User: 小智
-  Date: 2017/4/19 0019
-  Time: 15:02
-  To change this template use File | Settings | File Templates.
+Created by IntelliJ IDEA.
+User: 小智
+Date: 2017/4/19 0019
+Time: 15:02
+To change this template use File | Settings | File Templates.
 -->
-<!--教务处-->
+<!--校园网-->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -14,7 +15,6 @@
     <script type="text/javascript" src="../../js/vue.min.js"></script>
     <link rel="stylesheet" href="../../css/login_common.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-
     <script>
         $(document).ready(function () {
             $("#mySubmit").click(function () {
@@ -24,7 +24,7 @@
                     },
                     function (data, status) {
                         if (data.code == 200)
-                            window.location.href = "/web/information/library.jsp";
+                            window.location.href = "/web/information/campusNetwork.jsp";
                         else
                             alert("帐号或密码错误！");
                     });
@@ -34,11 +34,7 @@
 </head>
 <body>
 <div id="main">
-    <div class="formData" style="background: url('../../img/formbgCommon.png')">
-        <div class="myText">
-            <p id="hanzi">教务处身份验证</p>
-            <p id="yingwen">Bean's Office Identity Service</p>
-        </div>
+    <div class="formData">
         <ul>
             <li><input type="text" id="studentId" name="studentId" placeholder="请输入学号"></li>
             <li><input type="password" id="password" name="password" placeholder="请输入密码"></li>
@@ -60,7 +56,7 @@
     new Vue({
         el: '#main',
         data: {
-            message: '<h1></h1>'
+            message: '<h1>我就不信了</h1>'
         }
     })
 </script>

@@ -1,5 +1,6 @@
 package com.xiaozhi.result.resultImpl;
 
+import com.xiaozhi.exception.ServiceException;
 import com.xiaozhi.result.BaseResult;
 import com.xiaozhi.result.ResultCode;
 
@@ -25,6 +26,12 @@ public class ServiceResult<T> implements BaseResult, Serializable{
         this.data = data;
         this.code = ResultCode.SUCCESS.getCode();
         this.describe = ResultCode.SUCCESS.getDescribe();
+    }
+
+    public ServiceResult(ServiceException exception){
+        this.data = data;
+        this.code = exception.getErrorCode();
+        this.describe = exception.getErrorDescribe();
     }
 
     public ServiceResult(ResultCode resultCode){
