@@ -61,7 +61,39 @@
                 </tr>
                 <tr>
                     <td class="title td_title">账户余额</td>
-                    <td class="title td_content">{{financialInfo.money}}</td>
+                    <td class="title td_content">{{financialInfo.money}}
+                        <button style="float: right" class="btn btn-default"
+                                data-toggle="modal" data-target="#myModal">
+                            充值
+                        </button>
+                        <!-- 模态框（Modal） -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                            &times;
+                                        </button>
+                                        <h4 class="modal-title" id="myModalLabel">
+                                            财务充值
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input required="required" type="number" class="form-control" name="netMoney"
+                                               placeholder="请输入充值金额" id="moneyValue">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button v-on:click="addMoney" type="button" class="btn btn-primary"
+                                                id="moneyAdd">
+                                            提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
                     <td class="title td_title">电子邮件</td>
                     <td class="title td_content"></td>
                 </tr>
@@ -112,6 +144,22 @@
             }, function (response) {
                 console.info(response);
             })
+        },
+        methods: {
+            addMoney: function () {
+                this.$http.post("/financial/updateFinancial", {
+                    id:${student.id},
+                    money: $("#moneyValue").val()
+                }).then(function (data) {
+                        if (data.status == 200 && data.body.code == 200) {
+                            window.location.href = "/web/information/financial.jsp";
+                            alert("充值成功！");
+                        }
+                    }, function (response) {
+                        console.info(response);
+                    }
+                );
+            }
         }
     });
 </script>

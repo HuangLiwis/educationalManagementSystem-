@@ -27,7 +27,7 @@ public class CampusNetController{
 
     @ResponseBody
     @RequestMapping(value = "/networkInfo", method = RequestMethod.GET)
-    public CampusNetVo studentLogin(@CookieValue String student){
+    public CampusNetVo networkInfo(@CookieValue String student){
         StudentVo studentVo = JsonUtils.json2object(student, StudentVo.class);
         ServiceResult<CampusNetVo> result = campusNetService.findCampusNetVo(studentVo);
         CampusNetVo campusNetVo = null;
@@ -38,8 +38,8 @@ public class CampusNetController{
 
     @ResponseBody
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public WebResult studentLogin(@CookieValue String student,
-                                  @RequestBody CampusNetVo campusNetVo){
+    public WebResult updateInfo(@CookieValue String student,
+                                @RequestBody CampusNetVo campusNetVo){
         StudentVo studentVo = JsonUtils.json2object(student, StudentVo.class);
         ServiceResult<Void> result = campusNetService.updateCampusNetVo(studentVo, campusNetVo);
         if (!result.isSuccess())

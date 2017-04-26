@@ -2,6 +2,7 @@ package com.xiaozhi.controller;
 
 import com.xiaozhi.model.FinancialVo;
 import com.xiaozhi.model.StudentVo;
+import com.xiaozhi.result.ResultCode;
 import com.xiaozhi.result.resultImpl.ServiceResult;
 import com.xiaozhi.result.resultImpl.WebResult;
 import com.xiaozhi.service.FinancialService;
@@ -27,7 +28,7 @@ public class FinancialController{
 
     @ResponseBody
     @RequestMapping(value = "/info", method = RequestMethod.GET)
-    public FinancialVo studentLogin(@CookieValue String student){
+    public FinancialVo financialInfo(@CookieValue String student){
         StudentVo studentVo = JsonUtils.json2object(student, StudentVo.class);
         ServiceResult<FinancialVo> result = financialService.findFinancial(studentVo);
         FinancialVo financialVo = null;
@@ -38,13 +39,28 @@ public class FinancialController{
 
     @ResponseBody
     @RequestMapping(value = "/addMoneyRecord", method = RequestMethod.POST)
-    public WebResult studentLogin(@CookieValue String student,
-                                  @RequestBody FinancialVo.MoneyRecord moneyRecord){
+    public WebResult addMoneyRecord(@CookieValue String student,
+                                    @RequestBody FinancialVo.MoneyRecord moneyRecord){
         moneyRecord.setTime(dateFormat.format(new Date()));
         StudentVo studentVo = JsonUtils.json2object(student, StudentVo.class);
         ServiceResult<Void> result = financialService.addMoneyRecord(studentVo, moneyRecord);
-        if (!result.isSuccess())
+        if (!result.isSuccess()) {
             log.warn("摊上大事了");
+            return new WebResult(ResultCode.FIELD);
+        }
         return new WebResult<>(moneyRecord);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/updateFinancial", method = RequestMethod.POST)
+    public WebResult addMoneyRecord(@CookieValue String student,
+                                    @RequestBody FinancialVo financialVo){
+        StudentVo studentVo = JsonUtils.json2object(student, StudentVo.class);
+        ServiceResult<Void> result = financialService.updateFinancial(studentVo, financialVo);
+        if (!result.isSuccess()) {
+            log.warn("摊上大事了");
+            return new WebResult(ResultCode.FIELD);
+        }
+        return new WebResult<>();
     }
 }

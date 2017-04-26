@@ -13,6 +13,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -45,18 +47,18 @@ public class FinancialServiceImpl implements FinancialService{
         if (studentVo.isIllegal()) {
             throw new ServiceException(ResultCode.PARAMETER_ILLEGAL);
         }
-        FinancialDo FinancialDo = new FinancialDo();
-        FinancialDo.setId(studentVo.getId());
-        FinancialDo = financialDao.find(FinancialDo).get(0);
-
+        //老数据
+        FinancialDo financialDo = new FinancialDo();
+        financialDo.setId(studentVo.getId());
+        financialDo = financialDao.find(financialDo).get(0);
+        //插入记录，计算余额
         FinancialDo.MoneyRecord moneyRecordDo = new FinancialDo.MoneyRecord();
         BeanUtils.copyProperties(moneyRecord, moneyRecordDo);
-        moneyRecordDo.setOverage(FinancialDo.getMoney() - moneyRecord.getFee());
-        FinancialDo.setMoneyRecord(moneyRecordDo);
-        FinancialDo.setMoney(FinancialDo.getMoney() - moneyRecord.getFee());
+        moneyRecordDo.setOverage(financialDo.getMoney() - moneyRecord.getFee());
+        financialDo.setMoneyRecord(moneyRecordDo);
+        financialDo.setMoney(financialDo.getMoney() - moneyRecord.getFee());
 
-        financialDao.update(FinancialDo);
-
+        financialDao.update(financialDo);
         return new ServiceResult<>();
     }
 
@@ -65,6 +67,20 @@ public class FinancialServiceImpl implements FinancialService{
         if (studentVo.isIllegal()) {
             throw new ServiceException(ResultCode.PARAMETER_ILLEGAL);
         }
-        return null;
+        FinancialDo financialDo = new FinancialDo();
+        BeanUtils.copyProperties(financialVo, financialDo);
+        //获取老数据
+        FinancialDo oldFinancialDo = financialDao.find(financialDo).get(0);
+        //增加记录
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        FinancialDo.MoneyRecord moneyRecord = new FinancialDo.MoneyRecord();
+        moneyRecord.setTime(dateFormat.format(new Date()));
+        moneyRecord.setFee(financialVo.getMoney());
+        moneyRecord.setType("总财务充值");
+        moneyRecord.setOverage(financialVo.getMoney() + oldFinancialDo.getMoney());
+        financialDo.setMoney(financialVo.getMoney() + oldFinancialDo.getMoney());
+        financialDo.setMoneyRecord(moneyRecord);
+        financialDao.update(financialDo);
+        return new ServiceResult<>();
     }
 }

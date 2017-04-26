@@ -68,10 +68,10 @@ public class LibraryServiceImpl implements LibraryService{
         }
         LibraryInfoDo libraryInfoDo = new LibraryInfoDo();
         BeanUtils.copyProperties(libraryInfoVo, libraryInfoDo);
-        BeanUtils.copyProperties(libraryInfoVo.getLibraryBook(), libraryInfoDo.getLibraryBook());
-        LibraryInfoDo oldLibraryInfoDo = libraryInfoDao.find(libraryInfoDo).get(0);
-        if (libraryInfoDo.getLibraryBook().getBookId() != null)
-            libraryInfoDo.setBorrows(oldLibraryInfoDo.getBorrows() + 1);
+        //BeanUtils.copyProperties(libraryInfoVo.getLibraryBook(), libraryInfoDo.getLibraryBook());
+        //LibraryInfoDo oldLibraryInfoDo = libraryInfoDao.find(libraryInfoDo).get(0);
+        //if (libraryInfoDo.getLibraryBook().getBookId() != null)
+        //   libraryInfoDo.setBorrows(oldLibraryInfoDo.getBorrows() + 1);
         libraryInfoDao.update(libraryInfoDo);
         return new ServiceResult<>();
     }
