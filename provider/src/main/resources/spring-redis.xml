@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.xiaozhi.daoImpl.redis"/>
+    <context:property-placeholder location="classpath:application.properties"/>
+
+    <bean id="shardInfo" class="redis.clients.jedis.JedisShardInfo">
+        <constructor-arg name="host" value="${redis.host}"/>
+        <constructor-arg name="port" value="${redis.port}"/>
+    </bean>
+
+    <bean id="jedis" class="redis.clients.jedis.Jedis">
+        <constructor-arg name="shardInfo" ref="shardInfo"/>
+    </bean>
+</beans>

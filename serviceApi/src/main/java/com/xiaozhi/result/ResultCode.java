@@ -11,6 +11,7 @@ public enum ResultCode{
     NullPointerException(202, "空指针异常"),
     DATABASE_RETURN_NULL(203, "数据库返回为空"),
 
+    COURSE_HAD_NONE(204, "课程已经被选完"),
     FIELD(999, "Service返回失败");
 
     private int code;               //返回码

@@ -42,6 +42,7 @@
         <guava.version>21.0</guava.version>
         <servlet.version>3.1.0</servlet.version>
         <jstl.version>1.2</jstl.version>
+        <jedis.version>2.9.0</jedis.version>
     </properties>
 
     <dependencyManagement>
@@ -180,7 +181,12 @@
                 <artifactId>spring-data-mongodb</artifactId>
                 <version>1.9.5.RELEASE</version>
             </dependency>
-
+            <!--Redis-->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
             <!--工具类-->
             <dependency>
                 <groupId>com.google.guava</groupId>

@@ -21,5 +21,5 @@
                      check="false"/>
     <dubbo:reference version="1.0" id="financialService" interface="com.xiaozhi.service.FinancialService"
                      check="false"/>
-
+    <dubbo:reference version="1.0" id="courseService" interface="com.xiaozhi.service.CourseService" check="false"/>
 </beans>

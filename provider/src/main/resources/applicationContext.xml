@@ -9,4 +9,5 @@
     <import resource="dubbo-customer.xml"/>
     <import resource="spring-mybatis.xml"/>
     <import resource="spring-mongodb.xml"/>
+    <import resource="spring-redis.xml"/>
 </beans>

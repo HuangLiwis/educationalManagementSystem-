@@ -16,5 +16,5 @@
     <dubbo:service version="1.0" interface="com.xiaozhi.service.LibraryService" ref="libraryServiceImpl"/>
     <dubbo:service version="1.0" interface="com.xiaozhi.service.CampusNetService" ref="campusNetServiceImpl"/>
     <dubbo:service version="1.0" interface="com.xiaozhi.service.FinancialService" ref="financialService"/>
-
+    <dubbo:service version="1.0" interface="com.xiaozhi.service.CourseService" ref="courseServiceImpl"/>
 </beans>

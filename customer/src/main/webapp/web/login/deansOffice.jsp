@@ -1,11 +1,12 @@
 <!--
-  Created by IntelliJ IDEA.
-  User: 小智
-  Date: 2017/4/19 0019
-  Time: 15:02
-  To change this template use File | Settings | File Templates.
+Created by IntelliJ IDEA.
+User: 小智
+Date: 2017/4/19 0019
+Time: 15:02
+To change this template use File | Settings | File Templates.
 -->
 <!--教务处-->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -23,8 +24,10 @@
                         password: $("#password").val()
                     },
                     function (data, status) {
+                        console.info(data);
+                        console.info(status);
                         if (data.code == 200)
-                            window.location.href = "/web/information/library.jsp";
+                            window.location.href = "/web/information/deansOffice.jsp";
                         else
                             alert("帐号或密码错误！");
                     });

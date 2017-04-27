@@ -129,6 +129,12 @@
             <artifactId>spring-data-mongodb</artifactId>
         </dependency>
 
+        <!-- Redis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+
         <!--工具类-->
         <dependency>
             <groupId>com.google.guava</groupId>
