@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiaozhi.dao.mysql.CourseMySqlDao">
+    <resultMap id="courseMap" type="com.xiaozhi.model.mysql.CourseDo">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="teacherName" property="teacherName"/>
+        <result column="time" property="time"/>
+        <result column="place" property="place"/>
+        <result column="score" property="score"/>
+        <result column="total" property="total"/>
+        <result column="selected" property="selected"/>
+        <result column="remain" property="remain"/>
+        <result column="academy" property="academy"/>
+    </resultMap>
+
+    <sql id="saveAllColumn">
+        (id,name,teacherName,time,place,score,total,selected,remain,academy)
+    </sql>
+    <sql id="getAllColumn">
+        id,name,teacherName,time,place,score,total,selected,remain,academy
+    </sql>
+
+    <insert id="save">
+        INSERT INTO course
+        <include refid="saveAllColumn"/>
+        VALUES
+        (#{courseDo.id},#{courseDo.name},#{courseDo.teacherName},#{courseDo.time},#{courseDo.place},#{courseDo.score},
+        #{courseDo.total},#{courseDo.selected},#{courseDo.remain},#{courseDo.academy})
+    </insert>
+
+
+    <select id="listAll" resultMap="courseMap">
+        SELECT
+        *
+        FROM course
+    </select>
+
+    <select id="getById" resultMap="courseMap">
+        SELECT
+        *
+        FROM course
+        WHERE id=#{id}
+    </select>
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index"  separator=";">
+            UPDATE course
+            SET
+            selected=#{item.selected},
+            remain=#{item.remain}
+            WHERE id=#{item.id}
+        </foreach>
+    </update>
+</mapper>

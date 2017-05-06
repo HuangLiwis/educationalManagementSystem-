@@ -43,6 +43,7 @@
         <servlet.version>3.1.0</servlet.version>
         <jstl.version>1.2</jstl.version>
         <jedis.version>2.9.0</jedis.version>
+
     </properties>
 
     <dependencyManagement>
@@ -194,7 +195,11 @@
                 <version>${guava.version}</version>
             </dependency>
 
-
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>3.20.0-GA</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>

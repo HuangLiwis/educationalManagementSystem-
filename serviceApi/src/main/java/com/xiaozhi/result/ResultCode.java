@@ -12,6 +12,8 @@ public enum ResultCode{
     DATABASE_RETURN_NULL(203, "数据库返回为空"),
 
     COURSE_HAD_NONE(204, "课程已经被选完"),
+    COURSE_SELECTED_TIME(205,"选课时间未到"),
+    COURSE_SELECTED_OVER(206,"选课已结束"),
     FIELD(999, "Service返回失败");
 
     private int code;               //返回码

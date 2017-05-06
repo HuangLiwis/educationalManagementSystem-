@@ -10,8 +10,6 @@ import java.io.Serializable;
  * Created by 小智 on 2017/4/27 0027.
  */
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class CourseVo implements Serializable{
     private String id;             //课程代码
     private String name;           //课程名称

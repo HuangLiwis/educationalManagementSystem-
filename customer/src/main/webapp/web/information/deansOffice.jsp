@@ -1,3 +1,4 @@
+<%@ taglib prefix="v-on" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: 小智
@@ -47,61 +48,46 @@
                             <td class="title td_title">用户真实姓名</td>
                             <td class="title td_content">${student.name}</td>
                             <td class="title td_title">性别</td>
-                            <td class="title td_content">男</td>
+                            <td class="title td_content">${student.sex}</td>
                         </tr>
                         <tr>
                             <td class="title td_title">手机号码</td>
                             <td class="title td_content">${student.phoneNumber}</td>
-                            <td>专业班级</td>
-                            <td></td>
+                            <td>院系</td>
+                            <td>${student.academy}${student.grade}</td>
                         <tr>
-                            <td class="title td_title">证件类型</td>
-                            <td class="title td_content">身份证</td>
-                            <td class="title td_title">证件号码</td>
+                            <td class="title td_title">学号</td>
+                            <td class="title td_content">${student.id}</td>
+                            <td class="title td_title">身份证</td>
                             <td class="title td_content">${student.peopleId}</td>
                         </tr>
+                    </table>
+                    <table class="table table-bordered">
+                        <caption> 已选课列表</caption>
+                        <thead>
                         <tr>
-                            <td class="title td_title">账户余额</td>
-                            <td class="title td_content">{{financialInfo.money}}
-                                <button style="float: right" class="btn btn-default"
-                                        data-toggle="modal" data-target="#myModal">
-                                    充值
-                                </button>
-                                <!-- 模态框（Modal） -->
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-                                     aria-labelledby="myModalLabel"
-                                     aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-hidden="true">
-                                                    &times;
-                                                </button>
-                                                <h4 class="modal-title" id="myModalLabel">
-                                                    财务充值
-                                                </h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <input required="required" type="number" class="form-control"
-                                                       name="netMoney"
-                                                       placeholder="请输入充值金额" id="moneyValue">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                                                </button>
-                                                <button v-on:click="addMoney" type="button" class="btn btn-primary"
-                                                        id="moneyAdd">
-                                                    提交
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="title td_title">电子邮件</td>
-                            <td class="title td_content"></td>
+                            <th>课程名称</th>
+                            <th>课程代码</th>
+                            <th>教师姓名</th>
+                            <th>上课时间</th>
+                            <th>上课地点</th>
+                            <th>学分</th>
+                            <th>容量</th>
+                            <th>开课学院</th>
                         </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="value in studentCourse">
+                            <td>{{value.name}}</td>
+                            <td>{{value.id}}</td>
+                            <td>{{value.teacherName}}</td>
+                            <td>{{value.time}}</td>
+                            <td>{{value.place}}</td>
+                            <td>{{value.score}}</td>
+                            <td>{{value.total}}</td>
+                            <td>{{value.academy}}</td>
+                        </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div class="panel-body tab-pane fade" id="xuanxiu">
@@ -122,19 +108,20 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="value in financialInfo.moneyRecords">
+                        <tr v-for="value in courseInfo">
+                            <td>{{value.name}}</td>
+                            <td>{{value.id}}</td>
+                            <td>{{value.teacherName}}</td>
                             <td>{{value.time}}</td>
-                            <td>{{value.type}}</td>
-                            <td>{{value.fee}}</td>
-                            <td>{{value.overage}}</td>
-                            <td>{{value.wqwe}}</td>
-                            <td>{{value.qwewqe}}</td>
-                            <td>{{value.asdsad}}</td>
-                            <td>{{value.dfsf}}</td>
-                            <td>{{value.fgd}}</td>
-                            <td>{{value.fgd}}</td>
+                            <td>{{value.place}}</td>
+                            <td>{{value.score}}</td>
+                            <td>{{value.total}}</td>
+                            <td>{{value.selected}}</td>
+                            <td>{{value.remain}}</td>
+                            <td>{{value.academy}}</td>
                             <td>
-                                <button class="btn btn-default btn-sm">选课</button>
+                                <button class="btn btn-default btn-sm" v-on:click="selectCourse(value.id)">选课
+                                </button>
                             </td>
                         </tr>
                         </tbody>
@@ -149,26 +136,46 @@
     new Vue({
         el: '#financialInfo',
         data: {
-            financialInfo: ""
+            courseInfo: "",
+            studentCourse: ""
         },
         created: function () {
-            var url = "/financial/info";
+            //课程列表
+            var url = "/beansOffice/courseList";
             this.$http.get(url).then(function (data) {
-                console.info(data.body);
-                this.financialInfo = data.body;
+                this.courseInfo = data.body.data;
             }, function (response) {
                 console.info(response);
-            })
+                if (response.status == 400) {
+                    window.location.href = "/web/login/deansOffice.jsp";
+                }
+            });
+            //学生已选课程数据
+            this.$http.get("/beansOffice/listStudentCourse").then(function (data) {
+                    if (data.status == 200 && data.body.code == 200) {
+                        this.studentCourse = data.body.data;
+                    }
+                }, function (response) {
+                    console.info(response);
+                }
+            );
         },
         methods: {
-            addMoney: function () {
-                this.$http.post("/financial/updateFinancial", {
-                    id:${student.id},
-                    money: $("#moneyValue").val()
-                }).then(function (data) {
-                        if (data.status == 200 && data.body.code == 200) {
-                            window.location.href = "/web/information/financial.jsp";
-                            alert("充值成功！");
+            selectCourse: function (courseId) {
+                this.$http.get("/beansOffice/selectCourse?courseId=" + courseId).then(function (data) {
+                        if (data.status == 200) {
+                            if (data.body.code == 200) {
+                                window.location.href = "/web/information/deansOffice.jsp";
+                                alert("选课成功！");
+                            } else if (data.body.code == 204) {
+                                alert(data.body.describe);
+                            } else if (data.body.code == 205) {
+                                alert(data.body.describe);
+                            } else if (data.body.code == 206) {
+                                alert(data.body.describe);
+                            } else {
+                                alert(data.body.describe);
+                            }
                         }
                     }, function (response) {
                         console.info(response);

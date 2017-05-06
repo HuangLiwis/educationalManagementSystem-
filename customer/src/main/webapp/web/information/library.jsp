@@ -93,24 +93,24 @@
                             <TD><span class="bluetext">最大可委托图书：</span>0</TD>
                         </TR>
                         <TR>
-                            <TD><span class="bluetext">读者类型：</span>本科生</TD>
+                            <TD><span class="bluetext">读者类型：</span>${student.education}</TD>
                             <TD><span class="bluetext">借阅等级：</span>01</TD>
                             <TD><span class="bluetext">累计借书：</span>{{libraryInfo.borrows}}册次</TD>
                         </TR>
                         <TR>
                             <TD><span class="bluetext">违章次数：</span>{{libraryInfo.violates}}</TD>
                             <TD><span class="bluetext">欠款金额：</span>{{libraryInfo.overdraft}}</TD>
-                            <TD><span class="bluetext">系别：</span>计算机科学与工程学院</TD>
+                            <TD><span class="bluetext">系别：</span>${student.academy}${student.grade}</TD>
                         </TR>
                         <TR>
                             <TD colspan="2"><span class="bluetext">Email：</span></TD>
                             <TD colspan="2"><span class="bluetext">身份证号： </span>${student.peopleId}</TD>
                         </TR>
                         <TR>
-                            <TD><span class="bluetext">工作单位：</span>计算机科学与工程学院计算机类2013计算机类03</TD>
+                            <TD><span class="bluetext">工作单位：</span>${student.academy}${student.grade}</TD>
                             <TD><span class="bluetext">职业/职称：</span></TD>
                             <TD><span class="bluetext">职位：</span></TD>
-                            <TD><span class="bluetext">性别：</span>男</TD>
+                            <TD><span class="bluetext">性别：</span>${student.sex}</TD>
                         </TR>
                         <TR>
                             <TD><span class="bluetext">住址：</span></TD>
@@ -208,6 +208,9 @@
                 this.libraryInfo = data.body;
             }, function (response) {
                 console.info(response);
+                if(response.status==400){
+                    window.location.href = "/web/login/library.jsp";
+                }
             })
         },
         methods: {

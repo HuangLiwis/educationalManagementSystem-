@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiaozhi.dao.mysql.StudentCourseDao">
+    <resultMap id="studentCourseMap" type="com.xiaozhi.model.mysql.StudentCourseDo">
+        <result column="studentId" property="studentId"/>
+        <result column="courseId" property="courseId"/>
+    </resultMap>
+
+    <sql id="saveAllColumn">
+        (studentId,courseId)
+    </sql>
+    <sql id="getAllColumn">
+        studentId,courseId
+    </sql>
+
+    <insert id="save">
+        INSERT INTO StudentCourse
+        <include refid="saveAllColumn"/>
+        VALUES (#{studentCourseDo.studentId},#{studentCourseDo.courseId})
+    </insert>
+
+
+    <delete id="delete">
+        DELETE FROM StudentCourse
+        WHERE studentId=#{studentCourseDo.studentId}and courseId=#{studentCourseDo.courseId}
+    </delete>
+
+    <select id="listByStudentId" resultMap="studentCourseMap">
+        SELECT * FROM StudentCourse
+        WHERE studentId=#{studentId}
+    </select>
+
+</mapper>

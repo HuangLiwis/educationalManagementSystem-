@@ -1,7 +1,7 @@
 package com.xiaozhi.controller;
 
+import com.xiaozhi.model.StudentView;
 import com.xiaozhi.model.StudentVo;
-import com.xiaozhi.result.BaseResult;
 import com.xiaozhi.result.ResultCode;
 import com.xiaozhi.result.resultImpl.ServiceResult;
 import com.xiaozhi.result.resultImpl.WebResult;
@@ -36,7 +36,8 @@ public class LoginController{
         if (!result.isSuccess())
             return new WebResult(ResultCode.FIELD);
         studentVo = result.getData();
-        request.getSession().setAttribute("student", studentVo);
+        StudentView studentView = new StudentView(studentVo);
+        request.getSession().setAttribute("student", studentView);
         Cookie cookie = new Cookie("student", JsonUtils.object2json(studentVo));
         cookie.setMaxAge(60 * 30);
         cookie.setPath("/");

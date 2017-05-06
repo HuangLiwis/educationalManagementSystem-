@@ -28,4 +28,13 @@ public enum StudentCommonEnum{
     public String getDescribe(){
         return describe;
     }
+
+    public static String getDescribeByCode(int code){
+        for (StudentCommonEnum studentCommonEnum : StudentCommonEnum.values()) {
+            if (code == studentCommonEnum.code) {
+                return studentCommonEnum.describe;
+            }
+        }
+        return null;
+    }
 }

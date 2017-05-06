@@ -18,7 +18,7 @@ public class CourseDo implements Serializable{
     private String teacherName;    //老师姓名
     private String time;           //开课起止时间
     private String place;          //上课地点
-    private String score;           //学分
+    private String score;          //学分
     private Integer total;         //总量
     private Integer selected;      //已选
     private Integer remain;        //余量

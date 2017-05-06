@@ -31,4 +31,13 @@ public enum MajorEnum {
     public int getBelongToAcademy() {
         return belongToAcademy;
     }
+
+    public static String getDescribeByCode(int code){
+        for (MajorEnum majorEnum : MajorEnum.values()) {
+            if (code == majorEnum.majorId) {
+                return majorEnum.majorDescribe;
+            }
+        }
+        return null;
+    }
 }

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.8">
+    <CLASSES>
+      <root url="jar://D:/tools/maven_repository/org/codehaus/jackson/jackson-mapper-asl/1.9.8/jackson-mapper-asl-1.9.8.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/tools/maven_repository/org/codehaus/jackson/jackson-mapper-asl/1.9.8/jackson-mapper-asl-1.9.8-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/tools/maven_repository/org/codehaus/jackson/jackson-mapper-asl/1.9.8/jackson-mapper-asl-1.9.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

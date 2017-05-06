@@ -46,17 +46,17 @@
                 <td class="title td_title">用户真实姓名</td>
                 <td class="title td_content">${student.name}</td>
                 <td class="title td_title">性别</td>
-                <td class="title td_content">男</td>
+                <td class="title td_content">${student.sex}</td>
             </tr>
             <tr>
                 <td class="title td_title">手机号码</td>
                 <td class="title td_content">${student.phoneNumber}</td>
-                <td>专业班级</td>
-                <td></td>
+                <td>院系</td>
+                <td>${student.academy}${student.grade}</td>
             <tr>
-                <td class="title td_title">证件类型</td>
-                <td class="title td_content">身份证</td>
-                <td class="title td_title">证件号码</td>
+                <td class="title td_title">学号</td>
+                <td class="title td_content">${student.id}</td>
+                <td class="title td_title">身份证</td>
                 <td class="title td_content">${student.peopleId}</td>
             </tr>
             <tr>
@@ -161,6 +161,9 @@
                 this.campusNetwork = data.body;
             }, function (response) {
                 console.info(response);
+                if(response.status==400){
+                    window.location.href = "/web/login/campusNetwork.jsp";
+                }
             })
         },
         methods: {

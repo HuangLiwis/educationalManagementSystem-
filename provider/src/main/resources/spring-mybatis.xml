@@ -12,8 +12,10 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="com.xiaozhi.dao.mysql"/>
+
     <!--引入配置文件-->
-    <context:property-placeholder location="classpath:application.properties" />
+    <context:property-placeholder location="classpath:application.properties"/>
+
     <!-- 配置数据源 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="${mybatis.driverClass}"/>
@@ -54,7 +56,6 @@
 
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
-
 
 
 </beans>
